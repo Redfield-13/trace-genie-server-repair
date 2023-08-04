@@ -73,6 +73,7 @@ async function genie_call(method, params) {
     let query_str = querystring.stringify(params);
     // Construct the final URL from all the components
     const url = `${base}${url_path}?${query_str}`;
+    console.log(url);
     const urlResponse = await axios.get(url, {headers: {Cookie: await get_cookie()  }});
     urlResponse.data = urlResponse.data.replace(/&nbsp;/g, ' '); // &nbsp; to single space to fix whitespace
     urlResponse.data = urlResponse.data.replace(/\s{2,}/g, ' '); // Replace more than 1 space with 1 space

@@ -41,6 +41,7 @@ async function ggs2(postCode) {
 
   // Construct requests to get all the other pages
   let requests = [];
+  console.log(total_pages);
   for (let i = 1; i <= total_pages-1; i++) {
     requests.push(lib.genie_call("postcode", {
       q6:postCode,
@@ -66,9 +67,9 @@ async function ggs2(postCode) {
     //console.log(result.postcode);
 
     //global.io.emit('log', JSON.stringify(result) + '\r\n');
-    /**fs.appendFile("Results.txt", JSON.stringify(result) + '\r\n', (err) =>{
+    fs.appendFile("Results.txt", JSON.stringify(result) + '\r\n', (err) =>{
       console.log('saved!');
-    });**/
+    });
   }
 
   // console.log(all_results);
