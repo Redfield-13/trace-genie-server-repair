@@ -16,9 +16,14 @@ async function getCustomersOnPostCodeAndAddress(postcode,address){
     const [rows] = await pool.query(`SELECT * FROM tests WHERE address = ? AND postcode = '${postcode}'`, [address])
     return(rows)
 }
+async function getCustomersOnNameAndTown(name,town){
+    const [rows] = await pool.query(`SELECT * FROM tests WHERE name = ? AND town = '${town}'`, [name])
+    return(rows)
+}
 
 
 module.exports = {
     getCustomersOnPostCode,
-    getCustomersOnPostCodeAndAddress
+    getCustomersOnPostCodeAndAddress,
+    getCustomersOnNameAndTown
 }
