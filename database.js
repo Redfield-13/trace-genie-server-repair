@@ -9,15 +9,15 @@ const pool = mysql.createPool({
 }).promise()
 
 async function getCustomersOnPostCode(postcode){
-    const [rows] = await pool.query(`SELECT * FROM tests WHERE postcode = ?`,[postcode])
+    const [rows] = await pool.query(`SELECT * FROM finalS WHERE postcode = ?`,[postcode])
     return(rows)
 }
 async function getCustomersOnPostCodeAndAddress(postcode,address){
-    const [rows] = await pool.query(`SELECT * FROM tests WHERE address = ? AND postcode = '${postcode}'`, [address])
+    const [rows] = await pool.query(`SELECT * FROM finalS WHERE address = ? AND postcode = '${postcode}'`, [address])
     return(rows)
 }
 async function getCustomersOnNameAndTown(name,town){
-    const [rows] = await pool.query(`SELECT * FROM tests WHERE name = ? AND town = '${town}'`, [name])
+    const [rows] = await pool.query(`SELECT * FROM finalS WHERE name = ? AND town = '${town}'`, [name])
     return(rows)
 }
 
